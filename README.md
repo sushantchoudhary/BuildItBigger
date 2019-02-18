@@ -11,7 +11,15 @@ GCE module and passes them to the Android Library for display.
 1. freeDebug : Shows interstitial Ad 
 2. prodDebug : No Ads
 
-### Gradle Task (To start local GCE , run Android test and stop server)
+### Gradle Task 
+#### Start app engine 
+./gradlew appengineStart 
+
+#### Stop app engine 
+./gradlew appengineStop 
+
+
+#### To start local GCE , run Android test and stop server
 ./gradlew androidTest 
 
 ### Android UI Test
