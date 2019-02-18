@@ -1,0 +1,31 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.google.guava:guava:22.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+// Build task to start local GCE server, runs UI tests and stops server
+task androidTest(type: GradleBuild) {
+    description = "Build task to start local GCE server, runs UI tests and stops server"
+    tasks =  ['appengineStart','connectedPaidDebugAndroidTest', 'appengineStop']
+}
+
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+
+
+
+}

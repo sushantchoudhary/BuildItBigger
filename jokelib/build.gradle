@@ -1,0 +1,20 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+//sourceSets {
+//    main {
+//        java {
+//            srcDirs = ['src/java']
+//        }
+//    }
+//}
+
+sourceSets.main.java.outputDir = new File(buildDir, "classes/main")
+
+
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Jokey</string>
+    <string name="joke_fragment">Hello fragment</string>
+
+</resources>
