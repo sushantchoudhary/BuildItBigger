@@ -12,7 +12,7 @@ GCE module and passes them to the Android Library for display.
 2. prodDebug : No Ads
 
 ### Gradle Task (To start local GCE , run Android test and stop server)
-./gradlew androiTest 
+./gradlew androidTest 
 
 ### Android UI Test
 MainActivityUITest.java
