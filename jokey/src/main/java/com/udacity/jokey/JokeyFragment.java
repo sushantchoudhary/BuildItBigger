@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -55,6 +56,10 @@ public class JokeyFragment extends Fragment {
         if(joke != null && joke.length() != 0) {
             textView.setText(joke);
 
+        } else
+        {
+            textView.setVisibility(View.GONE);
+            Toast.makeText(this.getActivity(), "Something went wrong! Check network or service", Toast.LENGTH_SHORT ).show();
         }
         return  root;
     }

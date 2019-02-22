@@ -38,7 +38,7 @@ public class JokeService extends AsyncTask<Context, Void, Pair<Context, String>>
         try {
             return new Pair<>(context, jokeService.sayHi().execute().getData());
         } catch (IOException e) {
-            return new Pair<>(context, e.getMessage());
+            return new Pair<>(context, null);
         }
     }
 

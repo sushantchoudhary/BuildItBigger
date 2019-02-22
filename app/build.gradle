@@ -79,6 +79,17 @@ configurations.all {
     resolutionStrategy.force 'com.android.support:support-v4:27.1.1'
 }
 
+android.applicationVariants.all { variant ->
+    if (!variant.name.contains("paid")) {
+        project.tasks.each { t ->
+            if (t.name.contains("ads")) {
+                // Remove google services plugin
+                variant.getVariantData().resourceGenTask.getTaskDependencies().values.remove(t)
+            }
+        }
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     endpointsServer project(path: ':backend', configuration: 'endpoints')

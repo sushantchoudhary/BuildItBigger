@@ -1,4 +1,6 @@
+import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.IdlingRegistry;
 import android.support.test.espresso.IdlingResource;
@@ -16,10 +18,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.nullValue;
 
 @RunWith(AndroidJUnit4.class)
 public class MainActivityUITest {
@@ -49,6 +54,16 @@ public class MainActivityUITest {
             onView(withId(R.id.show_joke)).perform(ViewActions.click());
             onView(withId(R.id.joke_container)).check(matches(not(withText(""))));
 }
+    @Test
+    public void ClickShowJoke_FailsToFetchNoWifi() {
+        WifiManager wifiManager = (WifiManager) mActivityTestRule.getActivity().getSystemService(Context.WIFI_SERVICE);
+        wifiManager.setWifiEnabled(false);
+
+        onView(withId(R.id.show_joke)).perform(ViewActions.click());
+        onView(withId(R.id.joke_container)).check(matches(not(isDisplayed())));
+
+        wifiManager.setWifiEnabled(true);
+    }
 
 
     @After
@@ -58,5 +73,6 @@ public class MainActivityUITest {
             idlingRegistry.unregister(jokeIdlingResource);
         }
     }
+
 
 }

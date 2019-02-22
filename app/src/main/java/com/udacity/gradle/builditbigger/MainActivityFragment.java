@@ -3,6 +3,7 @@ package com.udacity.gradle.builditbigger;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.udacity.gradle.builditbigger.service.JokeService;
@@ -21,10 +21,10 @@ import com.udacity.gradle.builditbigger.service.JokeService;
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityFragment extends Fragment {
-    private AdView mAdView;
     private InterstitialAd mInterstitialAd;
 
     public MainActivityFragment() {
+        Log.d(this.getClass().getSimpleName(), "Check launch");
     }
 
     @Override
