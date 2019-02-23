@@ -1,6 +1,6 @@
 # Gradle for Android and Java Project
 
-In this project, we will create an app with multiple flavors that uses
+In this project, we are creating an app with multiple flavors that uses
 multiple libraries and Google Cloud Endpoints. The finished app will consist
 of four modules. A Java library that provides jokes, a Google Cloud Endpoints
 (GCE) project that serves those jokes, an Android Library containing an
